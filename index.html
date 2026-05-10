@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0, user-scalable=yes">
+<meta name="theme-color" content="#0f1419">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Elton Estoso | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter', sans-serif;
+}
+
+body{
+    min-height:100vh;
+    color:#fff;
+    background: #0f1419;
+    background-image:
+        radial-gradient(circle at 15% 20%, rgba(16,185,129,0.08), transparent 18%),
+        radial-gradient(circle at 85% 10%, rgba(16,185,129,0.05), transparent 15%),
+        radial-gradient(circle at 50% 90%, rgba(16,185,129,0.03), transparent 25%),
+        linear-gradient(135deg, #0f1419 0%, #1a3a2a 35%, #0d3d28 65%, #1a4d3e 100%);
+    overflow-x:hidden;
+}
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:radial-gradient(circle at top left, rgba(255,255,255,0.08), transparent 18%),
+               radial-gradient(circle at bottom right, rgba(255,255,255,0.05), transparent 25%);
+    pointer-events:none;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+/* NAV - FULLY RESPONSIVE */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:16px 5%;
+    background: rgba(16,185,129,0.08);
+    border-bottom: 2px solid rgba(16,185,129,0.25);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+nav h1{
+    font-size: 22px;
+    color: #10B981;
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+nav > div{
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav.scrolled{
+    padding: 12px 5%;
+    background: rgba(16,185,129,0.12);
+    border-bottom: 2px solid rgba(16,185,129,0.35);
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    padding: 8px 14px;
+    border: 1.5px solid rgba(16,185,129,0.4);
+    border-radius: 40px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+}
+
+nav a:hover{
+    background:rgba(16,185,129,0.2);
+    border-color: rgba(16,185,129,0.8);
+    color:#10B981;
+}
+
+/* MAIN CONTAINER */
+.container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:center;
+    padding: 40px 5%;
+    gap: 40px;
+}
+
+.left{
+    flex: 1;
+    min-width: 240px;
+}
+.left h2{
+    color:#10B981;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    text-transform:uppercase;
+    font-weight:700;
+    margin-bottom: 12px;
+}
+.left h1{
+    font-size: clamp(38px, 8vw, 70px);
+    line-height:1.2;
+    margin-bottom: 12px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #fff, #10B981);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.left p{
+    margin: 12px 0;
+    color:#e5e5e5;
+    font-size: 17px;
+    line-height:1.7;
+    font-weight: 400;
+}
+
+/* PROFILE SIDE */
+.profile-side{
+    display:flex;
+    flex-direction: row;
+    gap: 24px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.profile-details{
+    padding: 24px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 28px;
+    backdrop-filter: blur(10px);
+    flex: 1;
+    min-width: 240px;
+}
+
+.profile-details h3{
+    font-size: 24px;
+    margin-bottom: 16px;
+    color:#10B981;
+    font-weight:800;
+}
+
+.profile-details p{
+    color:#e5e5e5;
+    line-height:1.7;
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.detail-item{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+    color:#dbeafe;
+    align-items: baseline;
+    font-size: 16px;
+}
+
+.detail-item strong{
+    color:#fff;
+    min-width: 80px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.detail-item span{
+    color: #cbd5e6;
+    word-break: break-word;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* PROFILE IMAGE */
+.profile{
+    width: 220px;
+    height: 220px;
+    border-radius: 28px;
+    overflow:hidden;
+    border:4px solid #10B981;
+    box-shadow: 0 30px 50px rgba(0,0,0,0.5);
+    transform: perspective(800px) rotateX(5deg) rotateY(-8deg) translateZ(20px);
+    transition:0.4s ease;
+    background:#222;
+    flex-shrink: 0;
+}
+
+.profile:hover{
+    transform: perspective(800px) rotateX(2deg) rotateY(-2deg) translateZ(30px);
+}
+
+.profile img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+/* HERO SECTION */
+.hero{
+    padding: 40px 5%;
+    text-align:center;
+    background: rgba(255,255,255,0.06);
+    border-radius: 32px;
+    backdrop-filter: blur(12px);
+    margin: 20px 4% 30px;
+}
+
+.hero-content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap: 20px;
+}
+
+.hero-content h2{
+    font-size: clamp(30px, 6vw, 45px);
+    line-height:1.2;
+    background: linear-gradient(90deg, #10B981, #5eead4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 8px;
+    font-weight: 800;
+}
+
+.hero-content p{
+    font-size: 17px;
+    max-width: 600px;
+    margin:0 auto;
+    color:#e5e5e5;
+    line-height:1.7;
+    font-weight: 400;
+}
+
+.dashboard-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width:100%;
+    margin-top: 30px;
+}
+
+.dashboard-card{
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 24px;
+    padding: 24px 20px;
+    text-align:center;
+    transition: 0.2s;
+}
+
+.dashboard-card h3{
+    margin-bottom: 12px;
+    font-size: 22px;
+    color:#10B981;
+    font-weight:700;
+}
+
+.dashboard-card p{
+    font-size: 15px;
+    color:#e5e5e5;
+    line-height:1.6;
+    font-weight: 400;
+}
+
+/* GLOBAL SECTION STYLES */
+section{
+    padding: 55px 5%;
+}
+
+h2{
+    color:#10B981;
+    margin-bottom: 32px;
+    font-size: clamp(30px, 6vw, 42px);
+    font-weight:800;
+    line-height:1.2;
+    letter-spacing: -0.3px;
+}
+
+/* EDUCATION, EXPERIENCE, CERTIFICATIONS GRIDS */
+.edu-grid, .exp-grid, .cert-grid, .project-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+    margin-top: 20px;
+}
+
+.edu-card, .exp-card, .cert-card, .project-card{
+    background: rgba(16,185,129,0.08);
+    border: 2px solid rgba(16,185,129,0.2);
+    padding: 26px;
+    border-radius: 24px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    position:relative;
+}
+
+.edu-card::before, .exp-card::before, .cert-card::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:3px;
+    background: linear-gradient(90deg, #10B981, #06b6d4);
+    transform: scaleX(0);
+    transform-origin:left;
+    transition: transform 0.3s ease;
+}
+
+.edu-card:hover::before, .exp-card:hover::before, .cert-card:hover::before{
+    transform: scaleX(1);
+}
+
+.edu-card:hover, .exp-card:hover, .cert-card:hover, .project-card:hover{
+    transform: translateY(-6px);
+    background: rgba(16,185,129,0.12);
+    border-color: rgba(16,185,129,0.45);
+}
+
+.level, .position, .cert-title{
+    display:inline-block;
+    background: linear-gradient(135deg, #10B981, #06b6d4);
+    color:#0f1419;
+    padding: 6px 16px;
+    border-radius: 40px;
+    font-weight:800;
+    font-size: 13px;
+    text-transform:uppercase;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+}
+
+.strand, .company, .issuer{
+    color:#10B981;
+    font-weight:800;
+    font-size: 22px;
+    margin: 14px 0 10px;
+    line-height: 1.3;
+}
+
+.school-name, .description, .cert-description{
+    color:#e5e5e5;
+    font-weight:500;
+    font-size: 16px;
+    margin: 10px 0;
+    line-height:1.6;
+}
+
+.school-location, .duration, .cert-date{
+    color: rgba(229,229,229,0.75);
+    font-size: 15px;
+    margin: 8px 0;
+    font-weight: 500;
+}
+
+.year, .duration{
+    display:flex;
+    align-items:center;
+    gap: 8px;
+    color:#10B981;
+    font-weight:700;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(16,185,129,0.25);
+    font-size: 15px;
+}
+
+/* PROJECTS SECTION */
+.project-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap: 28px;
+    margin-bottom: 32px;
+    flex-wrap:wrap;
+}
+
+.project-intro{
+    flex: 2;
+    min-width: 220px;
+}
+
+.project-intro p{
+    color:#d9f99d;
+    line-height:1.7;
+    margin-top: 12px;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.project-status{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 14px;
+    flex: 1;
+}
+
+.status-card{
+    background: rgba(16,185,129,0.1);
+    border: 1px solid rgba(16,185,129,0.3);
+    padding: 14px 12px;
+    border-radius: 20px;
+    text-align:center;
+}
+
+.status-card strong{
+    color:#a7f3d0;
+    font-size: 13px;
+    text-transform:uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.status-card span{
+    color:#f8fafc;
+    font-size: 24px;
+    font-weight:800;
+    display: block;
+    margin-top: 5px;
+}
+
+.img-box{
+    width:100%;
+    height: 170px;
+    background: rgba(16,185,129,0.1);
+    border: 1px solid rgba(16,185,129,0.3);
+    border-radius: 20px;
+    margin-bottom: 18px;
+    overflow:hidden;
+}
+
+.img-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.project-card h3{
+    color:#10B981;
+    font-size: 26px;
+    margin-bottom: 12px;
+    font-weight: 800;
+}
+
+.project-card p{
+    color:#e5e5e5;
+    line-height:1.7;
+    font-size: 16px;
+    margin: 14px 0;
+    font-weight: 400;
+}
+
+.project-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap: 10px;
+    margin: 12px 0;
+}
+
+.project-tag{
+    background: rgba(16,185,129,0.2);
+    color:#d9f99d;
+    padding: 5px 12px;
+    border-radius: 40px;
+    font-size: 13px;
+    font-weight:700;
+}
+
+.project-link{
+    margin-top: 14px;
+    font-size: 14px;
+    color:#d9f99d;
+    word-break: break-all;
+}
+
+.project-link strong{
+    display:block;
+    margin-bottom: 6px;
+    color:#10B981;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.project-link a{
+    color:#fff;
+    text-decoration:underline;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.project-actions{
+    margin-top: 20px;
+    display:flex;
+    gap: 12px;
+    flex-wrap:wrap;
+}
+
+.view-project-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #10B981, #06b6d4);
+    color:#fff;
+    border:none;
+    border-radius: 50px;
+    text-decoration:none;
+    font-weight:700;
+    font-size: 15px;
+    transition:0.2s;
+}
+
+.view-project-btn:hover{
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+}
+
+/* CONTACT SECTION */
+.contact-details{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.detail-card{
+    background: rgba(16,185,129,0.08);
+    border: 1px solid rgba(16,185,129,0.25);
+    border-radius: 24px;
+    padding: 22px 18px;
+    backdrop-filter: blur(10px);
+    transition: 0.2s;
+    text-align: center;
+}
+
+.detail-card:hover{
+    transform: translateY(-3px);
+    background: rgba(16,185,129,0.12);
+    border-color: rgba(16,185,129,0.45);
+}
+
+.detail-card .icon{
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.detail-card .label{
+    color:#10B981;
+    font-weight:800;
+    font-size: 14px;
+    text-transform:uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.detail-card .value{
+    color:#e5e5e5;
+    font-size: 16px;
+    margin-top: 8px;
+    word-break: break-word;
+    font-weight: 500;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding: 35px 5%;
+    background: rgba(0,0,0,0.5);
+    border-top: 1px solid rgba(16,185,129,0.2);
+    font-size: 15px;
+    color:#e5e5e5;
+}
+
+.footer-content p{
+    margin: 8px 0;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* ========== ENHANCED MOBILE RESPONSIVE - VISIBLE FONTS ========== */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 14px 4%;
+    }
+    
+    nav h1 {
+        font-size: 24px;
+    }
+    
+    nav > div {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    nav a {
+        padding: 8px 14px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    
+    .container {
+        flex-direction: column;
+        text-align: center;
+        padding: 35px 5%;
+        gap: 35px;
+    }
+    
+    .left {
+        text-align: center;
+    }
+    
+    .left h1 {
+        font-size: 44px;
+    }
+    
+    .left p {
+        font-size: 17px;
+    }
+    
+    .profile-side {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .profile-details {
+        text-align: center;
+        width: 100%;
+        padding: 22px;
+    }
+    
+    .profile-details h3 {
+        font-size: 26px;
+    }
+    
+    .profile-details p {
+        font-size: 16px;
+    }
+    
+    .detail-item {
+        justify-content: center;
+        font-size: 16px;
+    }
+    
+    .detail-item strong, .detail-item span {
+        font-size: 16px;
+    }
+    
+    .profile {
+        width: 200px;
+        height: 200px;
+        transform: none;
+    }
+    
+    .hero {
+        margin: 15px 4% 25px;
+        padding: 35px 4%;
+    }
+    
+    .hero-content h2 {
+        font-size: 32px;
+    }
+    
+    .hero-content p {
+        font-size: 17px;
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    
+    .dashboard-card h3 {
+        font-size: 20px;
+    }
+    
+    .dashboard-card p {
+        font-size: 15px;
+    }
+    
+    section {
+        padding: 45px 4%;
+    }
+    
+    h2 {
+        font-size: 32px;
+        text-align: center;
+        margin-bottom: 28px;
+    }
+    
+    .edu-grid, .exp-grid, .cert-grid, .project-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+    
+    .edu-card, .exp-card, .cert-card, .project-card {
+        padding: 24px;
+    }
+    
+    .strand, .company, .issuer {
+        font-size: 20px;
+    }
+    
+    .school-name, .description, .cert-description {
+        font-size: 16px;
+    }
+    
+    .project-header {
+        flex-direction: column;
+    }
+    
+    .project-intro p {
+        font-size: 16px;
+    }
+    
+    .project-status {
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+    }
+    
+    .status-card strong {
+        font-size: 12px;
+    }
+    
+    .status-card span {
+        font-size: 20px;
+    }
+    
+    .img-box {
+        height: 150px;
+    }
+    
+    .project-card h3 {
+        font-size: 24px;
+    }
+    
+    .project-card p {
+        font-size: 16px;
+    }
+    
+    .contact-details {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    
+    .detail-card {
+        padding: 18px;
+    }
+    
+    .detail-card .value {
+        font-size: 16px;
+    }
+    
+    footer {
+        font-size: 14px;
+        padding: 28px 4%;
+    }
+}
+
+@media (max-width: 480px) {
+    nav a {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+    
+    .left h1 {
+        font-size: 38px;
+    }
+    
+    .left p {
+        font-size: 16px;
+    }
+    
+    .profile {
+        width: 170px;
+        height: 170px;
+    }
+    
+    .profile-details h3 {
+        font-size: 24px;
+    }
+    
+    .profile-details p, .detail-item strong, .detail-item span {
+        font-size: 15px;
+    }
+    
+    .hero-content h2 {
+        font-size: 28px;
+    }
+    
+    .hero-content p {
+        font-size: 16px;
+    }
+    
+    .dashboard-card {
+        padding: 18px;
+    }
+    
+    h2 {
+        font-size: 28px;
+    }
+    
+    .strand, .company, .issuer {
+        font-size: 19px;
+    }
+    
+    .level, .position, .cert-title {
+        font-size: 12px;
+        padding: 5px 14px;
+    }
+    
+    .school-name, .description, .cert-description {
+        font-size: 15px;
+    }
+    
+    .year, .duration {
+        font-size: 14px;
+    }
+    
+    .project-card h3 {
+        font-size: 22px;
+    }
+    
+    .view-project-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    .detail-card .value {
+        font-size: 15px;
+    }
+    
+    footer {
+        font-size: 13px;
+    }
+}
+
+/* Landscape orientation */
+@media (max-width: 850px) and (orientation: landscape) {
+    .container {
+        gap: 25px;
+        padding: 25px 5%;
+    }
+    
+    .profile {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .hero {
+        padding: 25px 4%;
+    }
+    
+    section {
+        padding: 35px 4%;
+    }
+    
+    .edu-grid, .exp-grid, .cert-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Animation */
+@keyframes targetPulse{
+    0%{ background: rgba(16,185,129,0.3); }
+    100%{ background: transparent; }
+}
+
+button, .view-project-btn, .detail-card, nav a {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+</style>
+</head>
+
+<body>
+
+<script>
+window.addEventListener('scroll', function() {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 100) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+});
+
+// Smooth scroll behavior with custom animation
+document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href && href.startsWith('#')) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                target.style.animation = 'none';
+                setTimeout(() => {
+                    target.style.animation = 'targetPulse 0.6s ease-out';
+                }, 10);
+            }
+        }
+    });
+});
+
+// Image fallback handling
+document.querySelectorAll('.img-box img, .profile img').forEach(img => {
+    img.onerror = function() {
+        if (this.src.includes('ffff.jpg')) {
+            this.src = 'https://ui-avatars.com/api/?background=10B981&color=fff&rounded=true&bold=true&name=Elton+Estoso&size=200';
+        } else if (this.src.includes('wwww')) {
+            this.parentElement.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#10B981;font-weight:600;font-size:15px;">📸 E-Commerce Preview</div>';
+        }
+    };
+});
+</script>
+
+<style>
+@keyframes targetPulse{
+    0%{ background: rgba(16,185,129,0.3); }
+    100%{ background: transparent; }
+}
+</style>
+
+<!-- NAVIGATION -->
+<nav>
+    <h1>Elton Estoso</h1>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#certifications">Certs</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- HOME SECTION (HERO) -->
+<section id="home" class="hero">
+<div class="hero-content">
+<h2>Welcome to My Portfolio</h2>
+<p>This is a showcase of my skills, education, and passion for technology. Feel free to explore and learn more about what I do.</p>
+<div class="dashboard-grid">
+<div class="dashboard-card">
+<h3>📚 Education</h3>
+<p>BS Information Technology student at Opol Community College, constantly improving my technical knowledge and building real-world projects.</p>
+</div>
+<div class="dashboard-card">
+<h3>💻 Core Skills</h3>
+<p>Web development, UI/UX design, responsive coding, and problem solving are the core strengths I bring to every project.</p>
+</div>
+<div class="dashboard-card">
+<h3>🤝 Let's Connect</h3>
+<p>Available for collaborations, freelance work, and innovative projects. Let's build something amazing together!</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- MAIN PROFILE SECTION -->
+<div class="container">
+
+<div class="left">
+<h2>Hello, I'm</h2>
+<h1>Elton Estoso</h1>
+<p>BSIT Student | Front-End Developer | Creator</p>
+<p>I'm passionate about building innovative solutions through technology. With a strong foundation in web development and modern design, I strive to create meaningful digital experiences that make a real difference in people's lives.</p>
+</div>
+
+<div class="profile-side">
+    <div class="profile-details">
+        <h3>📋 Profile Details</h3>
+        <div class="detail-item"><strong>📍 Location:</strong><span>Opol, Misamis Oriental, Philippines</span></div>
+        <div class="detail-item"><strong>🎓 Course:</strong><span>BS Information Technology</span></div>
+        <div class="detail-item"><strong>📅 Year Level:</strong><span>2nd Year College</span></div>
+        <div class="detail-item"><strong>⚙️ Tech Stack:</strong><span>HTML5, CSS3, JavaScript, React, Git</span></div>
+        <p>Ready to turn creative ideas into powerful digital experiences. I love learning emerging technologies and building projects that solve real-world problems efficiently.</p>
+    </div>
+    <div class="profile">
+        <img src="ffff.jpg" alt="Elton Estoso - Profile Photo">
+    </div>
+</div>
+
+</div>
+
+<!-- EDUCATION SECTION -->
+<section id="education">
+<h2>📖 My Educational Journey</h2>
+
+<div class="edu-grid">
+
+<div class="edu-card">
+    <div class="level">Primary</div>
+    <div class="strand">Elementary Education</div>
+    <div class="school-name">IGPIT Elementary School</div>
+    <div class="school-location">Igpit, Opol, Misamis Oriental</div>
+    <div class="year">📅 2012 - 2018</div>
+</div>
+
+<div class="edu-card">
+    <div class="level">Secondary</div>
+    <div class="strand">STEM / TVL-Hospitality Track</div>
+    <div class="school-name">Opol National Secondary Technical School</div>
+    <div class="school-location">Opol, Misamis Oriental</div>
+    <div class="year">📅 2018 - 2024</div>
+</div>
+
+<div class="edu-card">
+    <div class="level">College</div>
+    <div class="strand">BS Information Technology</div>
+    <div class="school-name">Opol Community College</div>
+    <div class="school-location">Opol, Misamis Oriental, Philippines</div>
+    <div class="year">📅 2024 - Present</div>
+</div>
+
+</div>
+</section>
+
+<!-- EXPERIENCE SECTION -->
+<section id="experience">
+<h2>💼 Work & Internship Experience</h2>
+
+<div class="exp-grid">
+
+<div class="exp-card">
+    <div class="position">Junior Web Developer</div>
+    <div class="company">Tech Innovations Company</div>
+    <div class="description">Developed fully responsive web applications using modern HTML, CSS, and JavaScript. Optimized site performance and implemented mobile-first designs for better user engagement.</div>
+    <div class="duration">⏱️ June 2024 - Present</div>
+</div>
+
+<div class="exp-card">
+    <div class="position">Frontend Intern</div>
+    <div class="company">Digital Solutions Ltd</div>
+    <div class="description">Created modern, accessible web interfaces, collaborated closely with design teams, and gained hands-on experience with React.js and Vue.js frameworks.</div>
+    <div class="duration">⏱️ January 2024 - May 2024</div>
+</div>
+
+<div class="exp-card">
+    <div class="position">IT Support Specialist</div>
+    <div class="company">Opol Community College</div>
+    <div class="description">Provided technical support, maintained computer laboratory infrastructure, and assisted students and faculty with hardware/software troubleshooting.</div>
+    <div class="duration">⏱️ September 2023 - December 2023</div>
+</div>
+
+</div>
+</section>
+
+<!-- CERTIFICATIONS SECTION -->
+<section id="certifications">
+<h2>🏆 Certifications & Achievements</h2>
+
+<div class="cert-grid">
+
+<div class="cert-card">
+    <div class="cert-title">📜 Web Development Fundamentals</div>
+    <div class="issuer">Codecademy (Certified)</div>
+    <div class="cert-date">Issued: March 2024</div>
+    <div class="cert-description">Mastered HTML, CSS, JavaScript fundamentals and practical web development skills including DOM manipulation.</div>
+</div>
+
+<div class="cert-card">
+    <div class="cert-title">📱 Responsive Web Design</div>
+    <div class="issuer">freeCodeCamp</div>
+    <div class="cert-date">Issued: February 2024</div>
+    <div class="cert-description">Advanced responsive and mobile-first design techniques for modern cross-device websites.</div>
+</div>
+
+<div class="cert-card">
+    <div class="cert-title">⚡ JavaScript Advanced Concepts</div>
+    <div class="issuer">Udemy</div>
+    <div class="cert-date">Issued: January 2024</div>
+    <div class="cert-description">Deep dive into async/await, promises, closures, ES6+ features and DOM interaction patterns.</div>
+</div>
+
+<div class="cert-card">
+    <div class="cert-title">🔧 IT Foundations</div>
+    <div class="issuer">CompTIA (IT Fundamentals+)</div>
+    <div class="cert-date">Issued: December 2023</div>
+    <div class="cert-description">Core IT concepts, networking basics, hardware fundamentals, and security principles.</div>
+</div>
+
+</div>
+</section>
+
+<!-- PROJECTS SECTION -->
+<section id="projects">
+<div class="project-header">
+    <div class="project-intro">
+        <h2>🚀 Featured Project</h2>
+        <p>Each project reflects my dedication to clean UI, responsive architecture, and modern front-end practices.</p>
+    </div>
+    <div class="project-status">
+        <div class="status-card">
+            <strong>⭐ Featured</strong>
+            <span>1 Project</span>
+        </div>
+        <div class="status-card">
+            <strong>🌐 Web Apps</strong>
+            <span>In Progress</span>
+        </div>
+        <div class="status-card">
+            <strong>🎨 UI Focus</strong>
+            <span>1 Complete</span>
+        </div>
+    </div>
+</div>
+
+<div class="project-grid">
+
+<div class="project-card">
+    <div class="img-box"><img src="wwww (2).png" alt="E-Commerce Store Interface Preview"></div>
+    <h3>🛍️ E-Commerce Store</h3>
+    <div class="project-meta">
+        <span class="project-tag">UI/UX Design</span>
+        <span class="project-tag">Fully Responsive</span>
+        <span class="project-tag">Mobile-First</span>
+    </div>
+    <p>Built a modern, fully responsive product store interface with shopping cart simulation and checkout flows. Features clean UI components, interactive elements, and seamless navigation across all screen sizes.</p>
+    <div class="project-link">
+        <strong>🔗 Live Demo:</strong>
+        <a href="https://jumpingmax.cdiscount.com/" target="_blank" rel="noreferrer">https://jumpingmax.cdiscount.com/</a>
+    </div>
+    <div class="project-actions">
+        <a href="https://jumpingmax.cdiscount.com/" target="_blank" rel="noreferrer" class="view-project-btn">🎯 View Live Project →</a>
+    </div>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact" id="contact">
+<h2>📫 Let's Connect & Collaborate</h2>
+
+<div class="contact-details">
+    <div class="detail-card">
+        <div class="icon">📧</div>
+        <div class="label">Email Me</div>
+        <div class="value">occ.estosoelton@email.com</div>
+    </div>
+    <div class="detail-card">
+        <div class="icon">📱</div>
+        <div class="label">Call / SMS</div>
+        <div class="value">+63 991 574 5135</div>
+    </div>
+    <div class="detail-card">
+        <div class="icon">📍</div>
+        <div class="label">My Location</div>
+        <div class="value">Opol, Misamis Oriental, Philippines</div>
+    </div>
+    <div class="detail-card">
+        <div class="icon">🌐</div>
+        <div class="label">Facebook</div>
+        <div class="value">facebook.com/elton.estoso</div>
+    </div>
+    <div class="detail-card">
+        <div class="icon">💬</div>
+        <div class="label">Discord</div>
+        <div class="value">elton0912 (active)</div>
+    </div>
+</div>
+
+</section>
+
+<footer>
+    <div class="footer-content">
+        <p>© 2026 Elton Estoso — Built with passion, code, and creativity 🇵🇭</p>
+        <p>📱 Fully responsive portfolio | Designed for clarity and readability on all devices</p>
+    </div>
+</footer>
+
+</body>
+</html>
